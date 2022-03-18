@@ -9,16 +9,17 @@ i2c = board.I2C()
 accelerometer = adafruit_adxl34x.ADXL343(i2c)
 
 # time
-t = 0.01
+t = 0.1
 # input from accelerometer
 a = accelerometer.acceleration
 # velocity
-v = [0, 0, 0]
+#v = [0, 0, 0]
 
-sample = 1000
-cal = [0, 0, 0]
+sample = 100
+#cal = [0, 0, 0]
 
 def calibrate():
+  cal = [0, 0, 0]
   for _ in range(sample):
     # refresh data from accelerometer
     a = accelerometer.acceleration
@@ -28,10 +29,17 @@ def calibrate():
       (cal[1] + a[1]),
       (cal[2] + a[2])
     ]
-  cal = cal/sample
+    print(cal)
+  cal = [
+    cal[0]/sample,
+    cal[1]/sample,
+    cal[2]/sample
+  ]
   print(cal)
+  return cal
     
-def run():
+def run(cal):
+  v = [0, 0, 0]
   while True:
     # refresh data from accelerometer
     a = accelerometer.acceleration
@@ -49,8 +57,8 @@ def run():
     time.sleep(t)
     
 def main():
-  calibrate()
-  run()
+  cal = calibrate()
+  run(cal)
   
 if __name__ == '__main__':
   main()
