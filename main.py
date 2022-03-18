@@ -1,6 +1,7 @@
 # scp -r ./main.py pi@raspberrypi.local:~/ADXL343
 
 import time
+import math
 import board
 import adafruit_adxl34x
 
@@ -42,7 +43,7 @@ def run():
     
     print(v)
     # speed (scalar quantity for v)
-    s = sqrt(v[0]+v[1]+v[2])
+    s = math.sqrt((v[0]**2)+(v[1]**2)+(v[2]**2))
     print(s)
     time.sleep(t)
     
