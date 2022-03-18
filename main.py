@@ -41,6 +41,9 @@ def run():
     ]
     
     print(v)
+    # speed (scalar quantity for v)
+    s = sqrt(v[0]+v[1]+v[2])
+    print(s)
     time.sleep(t)
     
 def main():
