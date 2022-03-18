@@ -24,10 +24,11 @@ def calibrate():
     a = accelerometer.acceleration
 
     cal = [
-      (cal[0] + a[0]) / sample,
-      (cal[1] + a[1]) / sample,
-      (cal[2] + a[2]) / sample
+      (cal[0] + a[0]),
+      (cal[1] + a[1]),
+      (cal[2] + a[2])
     ]
+  cal = cal/sample
   print(cal)
     
 def run():
