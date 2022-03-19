@@ -1,4 +1,6 @@
-# scp -r ./main.py pi@raspberrypi.local:~/ADXL343
+# scp ./main.py pi@raspberrypi.local:~/ADXL343
+# or
+# scp -r $(pwd) pi@raspberrypi.local:~/ADXL343
 
 import time
 import math
