@@ -31,7 +31,6 @@ def calibrate():
       (cal[1] + a[1]),
       (cal[2] + a[2])
     ]
-    print(cal)
   cal = [
     cal[0]/sample,
     cal[1]/sample,
