@@ -26,9 +26,9 @@ def calibrate():
         a = accelerometer.acceleration
 
         cal = [
-            (cal[0] + a[0]),
-            (cal[1] + a[1]),
-            (cal[2] + a[2])
+            (cal[0] + (a[0] * 9.80665)),
+            (cal[1] + (a[1] * 9.80665)),
+            (cal[2] + (a[2] * 9.80665))
         ]
         print(cal)
     cal = [
@@ -47,9 +47,9 @@ def run(cal):
         a = accelerometer.acceleration
 
         v = [
-            v[0] + (a[0] - cal[0]) * dt,
-            v[1] + (a[1] - cal[1]) * dt,
-            v[2] + (a[2] - cal[2]) * dt
+            v[0] + ((a[0] * 9.80665) - cal[0]) * dt,
+            v[1] + ((a[1] * 9.80665) - cal[1]) * dt,
+            v[2] + ((a[2] * 9.80665) - cal[2]) * dt
         ]
 
         print(v)
